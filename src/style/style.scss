@@ -1,0 +1,9 @@
+@import "reset", "variable", "mixins";
+
+body {
+    & > * {
+        max-width: 1240px;
+        margin: auto;
+        font-family: "Montserrat", sans-serif;
+    }
+}
