@@ -23,7 +23,7 @@ describe("when the header is diplayed", () => {
 
         expect(aboutNavLink).toBeInTheDocument()
         expect(aboutNavLink).toHaveAttribute("href", "/about")
-        expect(aboutNavLink.textContent).toBe("à Propos")
+        expect(aboutNavLink.textContent).toBe("À propos")
     })
 
     it("redirects to the correct page when a link is clicked", () => {
