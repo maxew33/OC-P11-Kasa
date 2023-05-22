@@ -1,11 +1,16 @@
 import { describe, expect, it } from "vitest"
 import { render, screen } from "@testing-library/react"
+import { BrowserRouter } from "react-router-dom"
 
 import { About } from "../pages/About"
 
 describe("App", () => {
     it("should render with the title visible", () => {
-        render(<About />)
+        render(
+            <BrowserRouter>
+                <About />
+            </BrowserRouter>
+        )
         expect(screen.getByText(/About/i)).toBeInTheDocument()
     })
 })

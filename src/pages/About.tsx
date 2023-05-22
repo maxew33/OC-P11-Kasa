@@ -1,12 +1,12 @@
 import React from "react"
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
+import { Header } from "../components/header/Header"
+import { Footer } from "../components/footer/Footer"
 
 export const About: React.FC<{}> = () => {
     return (
         <>
             <Header />
-            <div>ABOUTE</div>
+            <div data-testid="about">ABOUT</div>
             <Footer />
         </>
     )
