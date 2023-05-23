@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import Logo from "../../assets/img/LOGO.png"
 import styles from "./Header.module.scss"
 
-export const Header: React.FC<{}> = () => {
+export default function Header() {
     return (
         <header className={styles.navbar}>
             <img src={Logo} alt="Logo de Kasa" className={styles.image} />

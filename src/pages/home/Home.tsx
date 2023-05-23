@@ -4,7 +4,7 @@ import styles from "./Home.module.css"
 import lodgingData from "../../data/lodgingData.json"
 import Card from "../../components/card/Card"
 
-export const Home: React.FC<{}> = () => {
+export default function Home() {
     const [count, setCount] = useState(0)
     lodgingData.forEach((data) => console.log(data))
 

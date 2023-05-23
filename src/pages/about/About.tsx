@@ -1,6 +1,6 @@
 import React from "react"
 
-export const About: React.FC<{}> = () => {
+export default function About() {
     return (
         <>
             <div data-testid="about">ABOUT</div>

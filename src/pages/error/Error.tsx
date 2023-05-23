@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Error: React.FC<{}> = () => {
+export default function Error() {
     return (
         <>
             <div data-testid="error">404</div>
