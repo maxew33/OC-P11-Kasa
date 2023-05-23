@@ -1,12 +1,8 @@
-import React from "react"
-import { useState } from "react"
 import styles from "./Home.module.css"
 import lodgingData from "../../data/lodgingData.json"
 import Card from "../../components/card/Card"
 
 export default function Home() {
-    const [count, setCount] = useState(0)
-    lodgingData.forEach((data) => console.log(data))
 
     return (
         <main data-testid="home-page">
@@ -19,15 +15,12 @@ export default function Home() {
                         <Card
                             title={data.title}
                             src={data.cover}
-                            idx={idx}
+                            id={data.id}
                             key={idx}
                         />
                     )
                 })}
             </section>
-            <button onClick={() => setCount((count) => count + 1)}>
-                count is {count}
-            </button>
         </main>
     )
 }

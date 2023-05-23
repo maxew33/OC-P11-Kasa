@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 type CardProps = {
     title: string
     src: string
-    idx: number
+    id: string
 }
 
 export default function Card(props: CardProps) {
@@ -14,7 +14,7 @@ export default function Card(props: CardProps) {
     return (
         <article
             className={styles.card}
-            onClick={() => navigate("/lodging/" + props.idx)}
+            onClick={() => navigate("/lodging/" + props.id)}
         >
             <img src={props.src} alt={props.title} />
             <span className={styles.title}>{props.title}</span>
