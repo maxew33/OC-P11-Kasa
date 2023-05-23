@@ -29,7 +29,7 @@ describe("when I change the route", () => {
 
     it('it should render Lodging page for "/lodging" route', async () => {
         render(
-            <MemoryRouter initialEntries={["/lodging"]}>
+            <MemoryRouter initialEntries={["/lodging/0"]}>
                 <App />
             </MemoryRouter>
         )

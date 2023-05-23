@@ -5,7 +5,7 @@ import styles from "./Header.module.scss"
 
 export const Header: React.FC<{}> = () => {
     return (
-        <div className={styles.navbar}>
+        <header className={styles.navbar}>
             <img src={Logo} alt="Logo de Kasa" className={styles.image} />
             <nav>
                 <NavLink
@@ -27,6 +27,6 @@ export const Header: React.FC<{}> = () => {
                     À propos
                 </NavLink>
             </nav>
-        </div>
+        </header>
     )
 }
