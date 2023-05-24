@@ -2,7 +2,7 @@ import { describe, expect, it, beforeAll } from "vitest"
 import { render, screen, fireEvent } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
 
-import { Header } from "../components/header/Header"
+import Header from "../components/header/Header"
 
 describe("when the header is diplayed", () => {
     beforeAll(() => {

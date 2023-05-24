@@ -4,21 +4,22 @@ import { MemoryRouter } from "react-router-dom"
 
 import Card from "../components/card/Card"
 
-describe("when a card is diplayed", () => {
+describe("when a card is diplayed", async() => {
     // mock of the props
     const mockTitle = "title"
     const mockSrc = "url"
-    const mockKey = 1
+    const mockKey = "1"
 
-    render(
+    await render(
         <MemoryRouter>
-            <Card title={mockTitle} src={mockSrc} idx={mockKey} />
+            <Card title={mockTitle} src={mockSrc} id={mockKey} />
         </MemoryRouter>
     )
-
+    
     const cardWrapper = screen.getByRole("article")
 
     it("renders the cards with the props", () => {
+
         //rendering the wrapper
         expect(cardWrapper).toBeInTheDocument()
 
@@ -33,9 +34,10 @@ describe("when a card is diplayed", () => {
         expect(cardImg).toHaveAttribute("src", mockSrc)
     })
 
-    it("calls handleClick function on click", () => {
+    it("calls handleClick function on click", ()=> {
+        
         const navigate = vi.fn()
-        fireEvent.click(cardWrapper)
+        fireEvent.click(cardWrapper as HTMLElement)
         // expect(navigate).toHaveBeenCalled()
         // expect(screen.getByTestId('lodging')).toBeInTheDocument()
     })
