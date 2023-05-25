@@ -61,6 +61,7 @@ table {
   --grey: #E3E3E3;
   --darkgrey: #C4C4C4;
   --gradient: linear-gradient(#fff0, #00000050);
+  --url:"";
 }
 
 body {
