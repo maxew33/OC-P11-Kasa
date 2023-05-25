@@ -62,8 +62,16 @@ export default function Lodging() {
   }, []);
 
   // Destructure the lodgingSelected object
-  const { title, pictures, description, host, rating, location, tags, equipments } =
-    lodgingSelected;
+  const {
+    title,
+    pictures,
+    description,
+    host,
+    rating,
+    location,
+    tags,
+    equipments,
+  } = lodgingSelected;
 
   const carouselLength = pictures.length;
 
@@ -82,10 +90,16 @@ export default function Lodging() {
   return (
     <main data-testid="lodging">
       <div className="slider">
-        <button onClick={() => handleClick(1)}>+</button>
         <img src={pictures[imgIdx]} alt={title} />
-        <button onClick={() => handleClick(-1)}>-</button>
-        <span>image {imgIdx + 1} / {carouselLength}</span>
+        {carouselLength > 1 && (
+          <>
+            <span>
+              <button onClick={() => handleClick(1)}>+</button>
+              <button onClick={() => handleClick(-1)}>-</button>
+              image {imgIdx + 1} / {carouselLength}
+            </span>
+          </>
+        )}
       </div>
       <div className="infos">
         <div className="infos-wrapper1">
