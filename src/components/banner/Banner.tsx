@@ -12,7 +12,7 @@ export default function Banner(props: BannerProps) {
     useEffect(() => {
         if (!headerRef.current) return
         headerRef.current.style.setProperty('--url', `url(${props.src})`)
-    }, [])
+    }, [headerRef.current])
 
     return (
         <header ref={headerRef} className={styles.header}>
