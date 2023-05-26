@@ -1,7 +1,7 @@
 .card {
     position: relative;
-    width: 30%;
-    height: 350px;
+    width: 21.25rem;
+    aspect-ratio: 1;
     border-radius: 1.5rem;
     overflow: hidden;
     cursor: pointer;
@@ -29,4 +29,6 @@
     color: white;
     bottom: 1rem;
     left: 1rem;
+    width: calc(100% - 1.5rem);
+    line-height: 1.25;
 }
