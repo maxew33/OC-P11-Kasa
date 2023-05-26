@@ -1,130 +1,200 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import lodgingData from "../../data/lodgingData.json";
-import Dropdown from "../../components/dropdown/Dropdown";
+import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import lodgingData from '../../data/lodgingData.json'
+import Dropdown from '../../components/dropdown/Dropdown'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faChevronLeft,
+    faChevronRight,
+    faStar
+} from '@fortawesome/free-solid-svg-icons'
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
+import styles from './Lodging.module.css'
 
 // Define the interface for lodging data
 interface LodgingData {
-  id: string;
-  title: string;
-  pictures: string[];
-  description: string;
-  host: {
-    name: string;
-    picture: string;
-  };
-  rating: string;
-  location: string;
-  equipments: string[];
-  tags: string[];
+    id: string
+    title: string
+    pictures: string[]
+    description: string
+    host: {
+        name: string
+        picture: string
+    }
+    rating: string
+    location: string
+    equipments: string[]
+    tags: string[]
 }
 
 export default function Lodging() {
-  // State variables
-  const [lodgingSelected, setLodgingSelected] = useState<LodgingData>({
-    id: "",
-    title: "",
-    pictures: [],
-    description: "",
-    host: { name: "", picture: "" },
-    rating: "",
-    location: "",
-    equipments: [],
-    tags: [],
-  });
-  const [imgIdx, setImgIdx] = useState(0);
+    // State variables
+    const [lodgingSelected, setLodgingSelected] = useState<LodgingData>({
+        id: '',
+        title: '',
+        pictures: [],
+        description: '',
+        host: { name: '', picture: '' },
+        rating: '',
+        location: '',
+        equipments: [],
+        tags: [],
+    })
 
-  // Get the parameter from the URL
-  const params = useParams<{ id: string }>();
+    const [splitLocation, setSplitLocation] = useState<string[]>([])
 
-  // Navigation function
-  const navigate = useNavigate();
+    const [splitName, setSplitName] = useState<string[]>([])
 
-  const lodgingId = params.id;
+    const [filledStar, setFilledStar] = useState<boolean[]>([])
 
-  // Function to retrieve lodging data
-  const getLodgingData = (): number => {
-    const filteredData = lodgingData.findIndex(
-      (lodging: LodgingData) => lodging.id === lodgingId
-    );
+    const [imgIdx, setImgIdx] = useState(0)
 
-    // Navigate to an error page if lodging data is not found
-    filteredData < 0 && navigate("/error");
+    // Get the parameter from the URL
+    const params = useParams<{ id: string }>()
 
-    return filteredData;
-  };
+    // Navigation function
+    const navigate = useNavigate()
 
-  useEffect(() => {
-    // Get the lodging data and update the state
-    const data = getLodgingData();
-    setLodgingSelected(lodgingData[data]);
-    console.log(data);
-  }, []);
+    const lodgingId = params.id
 
-  // Destructure the lodgingSelected object
-  const {
-    title,
-    pictures,
-    description,
-    host,
-    rating,
-    location,
-    tags,
-    equipments,
-  } = lodgingSelected;
+    // Function to retrieve lodging data
+    const getLodgingData = (): number => {
+        const filteredData = lodgingData.findIndex(
+            (lodging: LodgingData) => lodging.id === lodgingId
+        )
 
-  const carouselLength = pictures.length;
+        // Navigate to an error page if lodging data is not found
+        filteredData < 0 && navigate('/error')
 
-  // Function to handle the image carousel
-  const handleClick = (dir: number) => {
-    let newIdx = imgIdx;
-    newIdx += dir;
+        return filteredData
+    }
 
-    // go to the beginning or end of the carousel
-    newIdx === carouselLength && (newIdx = 0);
-    newIdx < 0 && (newIdx = carouselLength - 1);
+    useEffect(() => {
+        // Get the lodging data and update the state
+        const data = getLodgingData()
+        setLodgingSelected(lodgingData[data])
+    }, [])
 
-    setImgIdx(newIdx);
-  };
+    useEffect(() => {
+        setSplitLocation(lodgingSelected.location.split(' - '))
 
-  return (
-    <main data-testid="lodging">
-      <div className="slider">
-        <img src={pictures[imgIdx]} alt={title} />
-        {carouselLength > 1 && (
-          <>
-            <span>
-              <button onClick={() => handleClick(1)}>+</button>
-              <button onClick={() => handleClick(-1)}>-</button>
-              image {imgIdx + 1} / {carouselLength}
-            </span>
-          </>
-        )}
-      </div>
-      <div className="infos">
-        <div className="infos-wrapper1">
-          <div className="title">{title}</div>
-          <div className="location">{location}</div>
-          <div className="tags-wrapper">
-            {tags.map((tag, idx) => {
-              return <div key={idx}>{tag}</div>;
-            })}
-          </div>
-        </div>
-        <div className="infos-wrapper2">
-          <div className="host">
-            <div className="name">{host.name}</div>
-            <div className="avatar">
-              <img src={host.picture} alt={host.name} />
+        setSplitName(lodgingSelected.host.name.split(' '))
+
+        const filledStarQty = parseInt(lodgingSelected.rating)
+
+        const tmpfilledStar = []
+
+        for (let i = 0; i < 5; i++) {
+            tmpfilledStar.push(filledStarQty > i ? true : false)
+        }
+
+        setFilledStar(tmpfilledStar)
+    }, [lodgingSelected])
+
+    console.log(lodgingSelected.location, splitLocation)
+
+    const location = splitLocation[1] + ', ' + splitLocation[0]
+    // Destructure the lodgingSelected object
+    const { title, pictures, description, host, tags, equipments } =
+        lodgingSelected
+
+    const carouselLength = pictures.length
+
+    // Function to handle the image carousel
+    const handleClick = (dir: number) => {
+        let newIdx = imgIdx
+        newIdx += dir
+
+        // go to the beginning or end of the carousel
+        newIdx === carouselLength && (newIdx = 0)
+        newIdx < 0 && (newIdx = carouselLength - 1)
+
+        setImgIdx(newIdx)
+    }
+
+    return (
+        <main data-testid="lodging" className={styles.lodging}>
+            <div className={`slider ${styles.slider}`}>
+                <img
+                    src={pictures[imgIdx]}
+                    alt={title}
+                    className={styles.lodgingView}
+                />
+                {carouselLength > 1 && (
+                    <>
+                        <div className={styles.viewNavigation}>
+                            <button onClick={() => handleClick(-1)}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <span>
+                                {imgIdx + 1} / {carouselLength}
+                            </span>
+                            <button onClick={() => handleClick(1)}>
+                                <FontAwesomeIcon icon={faChevronRight} />
+                            </button>
+                        </div>
+                    </>
+                )}
             </div>
-          </div>
-          <div className="rate">{rating}</div>
-        </div>
-      </div>
-      <div className="more-infos">
-        <Dropdown size="medium" title="Description" content={[description]} />
-        <Dropdown size="medium" title="Equipements" content={equipments} />
-      </div>
-    </main>
-  );
+
+            <div className={styles.infos}>
+                <div className={styles.infosWrapper}>
+                    <div className="pres-wrapper">
+                        <h1>{title}</h1>
+                        <h2>{location}</h2>
+                    </div>
+                    <div className="tags-wrapper">
+                        {tags.map((tag, idx) => {
+                            return (
+                                <span key={idx} className={styles.tag}>
+                                    {tag}
+                                </span>
+                            )
+                        })}
+                    </div>
+                </div>
+
+                <div className={styles.infosWrapper}>
+                    <div className={styles.host}>
+                        <div className="name">
+                            {splitName[0]}
+                            <br />
+                            {splitName[1]}
+                        </div>
+                        <img
+                            src={host.picture}
+                            alt={host.name}
+                            className={styles.hostPicture}
+                        />
+                    </div>
+                    <div className="rate">
+                        {filledStar.map((star, idx) => {
+                            return (
+                                <span key={idx}>
+                                    {star ? (
+                                        <FontAwesomeIcon icon={faStar} />
+                                    ) : (
+                                        <FontAwesomeIcon icon={farStar} />
+                                    )}
+                                </span>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+
+            <div className={styles.infos}>
+                <Dropdown
+                    size="medium"
+                    title="Description"
+                    content={[description]}
+                />
+                <Dropdown
+                    size="medium"
+                    title="Equipements"
+                    content={equipments}
+                />
+            </div>
+        </main>
+    )
 }
