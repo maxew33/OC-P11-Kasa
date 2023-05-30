@@ -82,7 +82,7 @@
 
 .host {
     @include flex-c-sb;
-    gap: .5rem;
+    gap: 0.5rem;
     font-size: 1.125rem;
     line-height: 1.5;
 }
@@ -92,4 +92,11 @@
     height: 4rem;
     width: 4rem;
     object-fit: cover;
+}
+
+.waiting {
+    // position: relative;
+    >*{
+        display: none;
+    }
 }

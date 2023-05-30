@@ -90,4 +90,8 @@
   width: 4rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.waiting > * {
+  display: none;
 }/*# sourceMappingURL=Lodging.module.css.map */

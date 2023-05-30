@@ -49,6 +49,8 @@ export default function Lodging() {
 
     const [imgIdx, setImgIdx] = useState(0)
 
+    const [dataGot, setDataGot] = useState(false)
+
     // Get the parameter from the URL
     const params = useParams<{ id: string }>()
 
@@ -89,6 +91,8 @@ export default function Lodging() {
         }
 
         setFilledStar(tmpfilledStar)
+
+        setDataGot(true)
     }, [lodgingSelected])
 
     console.log(lodgingSelected.location, splitLocation)
@@ -113,7 +117,7 @@ export default function Lodging() {
     }
 
     return (
-        <main data-testid="lodging" className={styles.lodging}>
+        <main data-testid="lodging" className={ dataGot ? styles.lodging : styles.waiting}>
             <div className={`slider ${styles.slider}`}>
                 <img
                     src={pictures[imgIdx]}
