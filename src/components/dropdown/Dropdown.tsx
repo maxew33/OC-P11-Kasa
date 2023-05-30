@@ -29,8 +29,8 @@ export default function Dropdown(props: DropdownProps) {
                 </span>
             </div>
             <div className={`${open && styles.open} ${styles.content}`}>
-                {props.content.map((item) => {
-                    return <div className="item">{item}</div>
+                {props.content.map((item, idx) => {
+                    return <div className="item" key={idx}>{item}</div>
                 })}
             </div>
         </div>
