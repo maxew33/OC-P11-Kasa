@@ -10,7 +10,7 @@
         color: var(--maincol);
     }
 
-    p {
+    div {
         @include flex-c-se;
         flex-direction: column;
     }
@@ -21,5 +21,20 @@
 
     h2 {
         font-size: 2.25rem;
+        line-height: 1.25;
+        text-align: center;
     }
+}
+
+@media screen and (max-width: 440px) {.container {
+
+    width : 260px;
+    h1 {
+        font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+}
 }

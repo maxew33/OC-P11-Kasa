@@ -9,7 +9,7 @@
 .container a:visited {
   color: var(--maincol);
 }
-.container p {
+.container div {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -21,4 +21,18 @@
 }
 .container h2 {
   font-size: 2.25rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@media screen and (max-width: 440px) {
+  .container {
+    width: 260px;
+  }
+  .container h1 {
+    font-size: 6rem;
+  }
+  .container h2 {
+    font-size: 1.25rem;
+  }
 }/*# sourceMappingURL=Error.module.css.map */
