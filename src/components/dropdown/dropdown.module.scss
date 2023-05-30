@@ -1,12 +1,10 @@
 @import '../../style/mixins';
 
-
 .dropdown {
     // background: red;
     position: relative;
     margin: 2rem 0;
     > * {
-        // width: 100%;
         padding: 1rem 2rem;
     }
 }
@@ -50,15 +48,25 @@
     transform: rotate(180deg);
 }
 
-
 @media screen and (max-width: 440px) {
-    .large, .medium {
+    .dropdown {
+        margin: 1.25rem 0 0;
+        &:last-child {
+            margin-bottom: 1.25rem;
+        }
+        > * {
+            padding: .625rem .825rem;
+        }
+    }
+
+    .large,
+    .medium {
         width: 100%;
     }
-    .title{
-        font-size: .8rem;
+    .title {
+        font-size: 0.8rem;
     }
-    .content{
-        font-size: .75rem;
+    .content {
+        font-size: 0.75rem;
     }
 }

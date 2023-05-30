@@ -6,9 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faChevronLeft,
     faChevronRight,
-    faStar
+    faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import styles from './Lodging.module.css'
 
 // Define the interface for lodging data
@@ -117,7 +116,10 @@ export default function Lodging() {
     }
 
     return (
-        <main data-testid="lodging" className={ dataGot ? styles.lodging : styles.waiting}>
+        <main
+            data-testid="lodging"
+            className={dataGot ? styles.lodging : styles.waiting}
+        >
             <div className={`slider ${styles.slider}`}>
                 <img
                     src={pictures[imgIdx]}
@@ -147,7 +149,7 @@ export default function Lodging() {
                         <h1>{title}</h1>
                         <h2>{location}</h2>
                     </div>
-                    <div className="tags-wrapper">
+                    <div>
                         {tags.map((tag, idx) => {
                             return (
                                 <span key={idx} className={styles.tag}>
@@ -171,15 +173,18 @@ export default function Lodging() {
                             className={styles.hostPicture}
                         />
                     </div>
-                    <div className="rate">
+                    <div className={styles.rate}>
                         {filledStar.map((star, idx) => {
                             return (
-                                <span key={idx}>
-                                    {star ? (
-                                        <FontAwesomeIcon icon={faStar} />
-                                    ) : (
-                                        <FontAwesomeIcon icon={farStar} />
-                                    )}
+                                <span
+                                    key={idx}
+                                    className={
+                                        star
+                                            ? styles.filledStar
+                                            : styles.emptyStar
+                                    }
+                                >
+                                    <FontAwesomeIcon icon={faStar} />
                                 </span>
                             )
                         })}

@@ -8,14 +8,13 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.3333333333), rgba(0, 0, 0, 0.3333333333)), var(--url);
   background-size: cover;
   background-position: center;
-  border-radius: 1.5rem;
+  border-radius: var(--border-radius);
 }
 
 @media screen and (max-width: 440px) {
   .header {
     height: 7rem;
     font-size: 1.5rem;
-    border-radius: 0.625rem;
   }
   .header span {
     padding: 0 1rem;

@@ -48,7 +48,17 @@
 }
 
 @media screen and (max-width: 440px) {
-  .large, .medium {
+  .dropdown {
+    margin: 1.25rem 0 0;
+  }
+  .dropdown:last-child {
+    margin-bottom: 1.25rem;
+  }
+  .dropdown > * {
+    padding: 0.625rem 0.825rem;
+  }
+  .large,
+  .medium {
     width: 100%;
   }
   .title {

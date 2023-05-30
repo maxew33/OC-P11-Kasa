@@ -4,7 +4,7 @@
 
 .slider {
   position: relative;
-  width: 1240px;
+  width: inherit;
   height: 415px;
 }
 .slider > * {
@@ -15,7 +15,7 @@
 .lodgingView {
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 1.5rem;
+  border-radius: var(--border-radius);
 }
 
 .viewNavigation {
@@ -47,6 +47,9 @@
   justify-content: space-between;
   margin-top: 2rem;
 }
+.infos:last-child {
+  margin: 0;
+}
 .infos h1 {
   font-size: 2.25rem;
   margin-bottom: 0.5rem;
@@ -67,11 +70,11 @@
   place-content: center;
   color: var(--white);
   background: var(--maincol);
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
+  border-radius: 0.625rem;
+  margin: 0 0.5rem 0.5rem 0;
   height: 1.5rem;
-  width: 7rem;
+  min-width: 6rem;
+  padding: 0 0.5rem;
   font-size: 0.875rem;
 }
 
@@ -92,6 +95,79 @@
      object-fit: cover;
 }
 
+.rate {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.emptyStar {
+  color: var(--grey);
+}
+
 .waiting > * {
   display: none;
+}
+
+@media screen and (max-width: 440px) {
+  .slider {
+    height: 255px;
+  }
+  .viewNavigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .viewNavigation button {
+    margin: 0.25rem;
+    font-size: 1.5rem;
+  }
+  .viewNavigation span {
+    display: none;
+  }
+  .infos {
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+  .infos h1 {
+    font-size: 1.125rem;
+  }
+  .infos h2 {
+    font-size: 0.875rem;
+  }
+  .infosWrapper {
+    min-height: unset;
+    gap: 0.5rem;
+  }
+  .infosWrapper:last-child {
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .tag {
+    height: 1.125rem;
+    min-width: 3.5rem;
+    font-size: 0.625rem;
+    padding: 0 0.25rem;
+    border-radius: 0.3rem;
+  }
+  .host {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+  .hostPicture {
+    height: 2rem;
+    width: 2rem;
+  }
+  .rate {
+    width: 30%;
+    font-size: 0.85rem;
+  }
 }/*# sourceMappingURL=Lodging.module.css.map */

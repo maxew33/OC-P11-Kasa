@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-:root{
-    --maincol: #FF6060;
-    --white: #FFFFFF;
+:root {
+    --maincol: #ff6060;
+    --white: #ffffff;
     --black: #000000;
-    --lightgrey: #F6F6F6;
-    --grey: #E3E3E3;
-    --darkgrey: #C4C4C4;
+    --lightgrey: #f6f6f6;
+    --grey: #e3e3e3;
+    --darkgrey: #c4c4c4;
     --gradient: linear-gradient(#fff0, #00000050);
 
-    --url:'';
+    --url: '';
+
+    --border-radius: 1.5rem;
+}
+
+@media screen and (max-width: 440px) {
+    :root {
+        --border-radius: 0.625rem;
+    }
 }
