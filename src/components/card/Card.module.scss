@@ -32,3 +32,10 @@
     width: calc(100% - 1.5rem);
     line-height: 1.25;
 }
+
+@media screen and (max-width: 440px) {
+    .card {
+        width: 100%;
+        aspect-ratio: 1.3;
+    }  
+}

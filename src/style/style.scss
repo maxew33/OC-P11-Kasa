@@ -27,3 +27,10 @@ header {
 footer{
     flex-shrink: 0;
 }
+
+@media screen and (max-width: 440px) {
+    main,
+    header {
+        max-width: 320px;
+    }    
+}

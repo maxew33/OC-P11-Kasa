@@ -13,7 +13,7 @@
 .link, .active {
   --scaleX: 0;
   position: relative;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   color: var(--maincol);
   margin-left: 3.5rem;
@@ -36,4 +36,21 @@
 
 .active::after {
   --scaleX: 1;
+}
+
+@media screen and (max-width: 440px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0;
+  }
+  .image {
+    width: 145px;
+  }
+  .link, .active {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+  }
 }/*# sourceMappingURL=Header.module.css.map */

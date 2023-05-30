@@ -1,4 +1,4 @@
-@import "../../style/mixins";
+@import '../../style/mixins';
 
 .navbar {
     @include flex-c-sb;
@@ -10,15 +10,15 @@
     height: auto;
 }
 
-.link {    
+.link {
     --scaleX: 0;
     position: relative;
-    font-size: 24px;
+    font-size: 1.5rem;
     text-decoration: none;
     color: var(--maincol);
     margin-left: 3.5rem;
     &::after {
-        content:"";
+        content: '';
         position: absolute;
         bottom: 1px;
         left: 0;
@@ -26,10 +26,10 @@
         height: 1px;
         transform: scaleX(var(--scaleX));
         transform-origin: left;
-        transition: transform .25s ease-in-out;
+        transition: transform 0.25s ease-in-out;
         background: var(--maincol);
     }
-    &:hover{
+    &:hover {
         --scaleX: 1;
     }
 }
@@ -38,5 +38,22 @@
     @extend .link;
     &::after {
         --scaleX: 1;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .navbar {
+        @include flex-c-sb;
+        padding: 3rem 0;
+    }
+
+    .image {
+        width: 145px;
+    }
+
+    .link {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-left: 1rem;
     }
 }

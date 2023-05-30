@@ -9,4 +9,15 @@
   background-size: cover;
   background-position: center;
   border-radius: 1.5rem;
+}
+
+@media screen and (max-width: 440px) {
+  .header {
+    height: 7rem;
+    font-size: 1.5rem;
+    border-radius: 0.625rem;
+  }
+  .header span {
+    padding: 0 1rem;
+  }
 }/*# sourceMappingURL=Banner.module.css.map */

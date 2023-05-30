@@ -15,3 +15,9 @@
     width: 7.5rem;
     height: auto;
 }
+
+@media screen and (max-width: 440px) {
+    .footer{
+        font-size: .75rem;
+    }  
+}

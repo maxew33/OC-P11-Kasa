@@ -45,4 +45,16 @@
 
 .rotate {
   transform: rotate(180deg);
+}
+
+@media screen and (max-width: 440px) {
+  .large, .medium {
+    width: 100%;
+  }
+  .title {
+    font-size: 0.8rem;
+  }
+  .content {
+    font-size: 0.75rem;
+  }
 }/*# sourceMappingURL=dropdown.module.css.map */
