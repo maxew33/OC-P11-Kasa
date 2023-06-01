@@ -65,7 +65,7 @@ table {
   --border-radius: 1.5rem;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 500px) {
   :root {
     --border-radius: 0.625rem;
   }
@@ -89,7 +89,7 @@ main {
 
 main,
 header {
-  width: 100%;
+  width: 95%;
   max-width: 1240px;
   margin: auto;
 }
@@ -98,9 +98,9 @@ footer {
   flex-shrink: 0;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 500px) {
   main,
   header {
-    max-width: 320px;
+    width: 90%;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -16,6 +16,8 @@
   font-size: 1.5rem;
   text-decoration: none;
   color: var(--maincol);
+}
+.link:not(:first-child), .active:not(:first-child) {
   margin-left: 3.5rem;
 }
 .link::after, .active::after {
@@ -38,7 +40,7 @@
   --scaleX: 1;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 500px) {
   .navbar {
     display: flex;
     align-items: center;
@@ -51,6 +53,8 @@
   .link, .active {
     font-size: 0.75rem;
     text-transform: uppercase;
+  }
+  .link:not(:first-child), .active:not(:first-child) {
     margin-left: 1rem;
   }
 }/*# sourceMappingURL=Header.module.css.map */

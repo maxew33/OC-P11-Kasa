@@ -10,7 +10,12 @@
   padding: 3.5rem 0;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 1200px) {
+  .section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 500px) {
   .section {
     display: flex;
     flex-direction: column;

@@ -10,13 +10,15 @@
 }
 
 .large {
-    width: 64rem;
+    width: 100%;
+    max-width: 64rem;
     font-size: 1.5rem;
     align-self: center;
 }
 
 .medium {
-    width: 41.25%;
+    width: 48.5%;
+    max-width: 36.5rem;
     font-size: 1.125rem;
 }
 
@@ -48,14 +50,18 @@
     transform: rotate(180deg);
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 1200px) {
+    
+}
+
+@media screen and (max-width: 500px) {
     .dropdown {
         margin: 1.25rem 0 0;
         &:last-child {
             margin-bottom: 1.25rem;
         }
         > * {
-            padding: .625rem .825rem;
+            padding: 0.625rem 0.825rem;
         }
     }
 

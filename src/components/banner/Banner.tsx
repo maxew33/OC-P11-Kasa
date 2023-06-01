@@ -17,8 +17,7 @@ export default function Banner(props: BannerProps) {
     return (
         <header ref={headerRef} className={styles.header}>
             <span>
-
-            {props.text}
+                {props.text}
             </span>
         </header>
     )

@@ -16,7 +16,10 @@
     font-size: 1.5rem;
     text-decoration: none;
     color: var(--maincol);
-    margin-left: 3.5rem;
+    &:not(:first-child){
+        margin-left: 3.5rem;
+    }
+
     &::after {
         content: '';
         position: absolute;
@@ -41,7 +44,8 @@
     }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 500px
+) {
     .navbar {
         @include flex-c-sb;
         padding: 1.25rem 0;
@@ -54,6 +58,8 @@
     .link {
         font-size: 0.75rem;
         text-transform: uppercase;
-        margin-left: 1rem;
+        &:not(:first-child){
+            margin-left: 1rem;
+        }
     }
 }

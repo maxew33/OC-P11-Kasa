@@ -94,8 +94,6 @@ export default function Lodging() {
         setDataGot(true)
     }, [lodgingSelected])
 
-    console.log(lodgingSelected.location, splitLocation)
-
     const location = splitLocation[1] + ', ' + splitLocation[0]
     // Destructure the lodgingSelected object
     const { title, pictures, description, host, tags, equipments } =

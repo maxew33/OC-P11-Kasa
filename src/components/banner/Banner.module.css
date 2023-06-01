@@ -11,12 +11,14 @@
   border-radius: var(--border-radius);
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 1200px) {
+  .header span {
+    padding: 0 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
   .header {
     height: 7rem;
     font-size: 1.5rem;
-  }
-  .header span {
-    padding: 0 1rem;
   }
 }/*# sourceMappingURL=Banner.module.css.map */
