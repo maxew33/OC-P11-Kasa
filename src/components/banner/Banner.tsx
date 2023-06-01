@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from 'react'
 import styles from './Banner.module.css'
 
@@ -9,10 +10,11 @@ type BannerProps = {
 export default function Banner(props: BannerProps) {
     const headerRef = useRef<HTMLHeadElement>(null)
 
+    // Update the CSS property '--url' of the header
     useEffect(() => {
         if (!headerRef.current) return
         headerRef.current.style.setProperty('--url', `url(${props.src})`)
-    }, [headerRef.current])
+    }, [])
 
     return (
         <header ref={headerRef} className={styles.header}>

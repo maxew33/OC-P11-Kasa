@@ -11,12 +11,12 @@ export default function Home() {
                 src="/src/assets/img/home-banner-img.png"
             />
             <section className={styles.section}>
-                {lodgingData.map((data, idx) => {
+                {lodgingData.map((lodging, idx) => {
                     return (
                         <Card
-                            title={data.title}
-                            src={data.cover}
-                            id={data.id}
+                            title={lodging.title}
+                            src={lodging.cover}
+                            id={lodging.id}
                             key={idx}
                         />
                     )

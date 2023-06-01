@@ -25,12 +25,16 @@ export default function Dropdown(props: DropdownProps) {
             <div className={styles.title} onClick={handleClick}>
                 <h2>{props.title}</h2>
                 <span className={`${open && styles.rotate} ${styles.arrow}`}>
-                <FontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon icon={faChevronDown} />
                 </span>
             </div>
             <div className={`${open && styles.open} ${styles.content}`}>
                 {props.content.map((item, idx) => {
-                    return <div className="item" key={idx}>{item}</div>
+                    return (
+                        <div className="item" key={idx}>
+                            {item}
+                        </div>
+                    )
                 })}
             </div>
         </div>

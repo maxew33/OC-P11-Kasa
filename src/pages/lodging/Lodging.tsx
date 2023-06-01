@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import lodgingData from '../../data/lodgingData.json'
@@ -40,6 +41,18 @@ export default function Lodging() {
         tags: [],
     })
 
+    // Destructure the lodgingSelected object
+    const {
+        title,
+        pictures,
+        description,
+        host,
+        rating,
+        location,
+        tags,
+        equipments,
+    } = lodgingSelected
+
     const [splitLocation, setSplitLocation] = useState<string[]>([])
 
     const [splitName, setSplitName] = useState<string[]>([])
@@ -60,44 +73,41 @@ export default function Lodging() {
 
     // Function to retrieve lodging data
     const getLodgingData = (): number => {
-        const filteredData = lodgingData.findIndex(
+        const lodgingIdx = lodgingData.findIndex(
             (lodging: LodgingData) => lodging.id === lodgingId
         )
 
         // Navigate to an error page if lodging data is not found
-        filteredData < 0 && navigate('/error')
+        lodgingIdx < 0 && navigate('/error')
 
-        return filteredData
+        return lodgingIdx
     }
 
     useEffect(() => {
-        // Get the lodging data and update the state
-        const data = getLodgingData()
-        setLodgingSelected(lodgingData[data])
+        // Get the lodging data and update the state with it
+        const idx = getLodgingData()
+        setLodgingSelected(lodgingData[idx])
     }, [])
 
+    // format the place and name data and the rate
     useEffect(() => {
-        setSplitLocation(lodgingSelected.location.split(' - '))
+        setSplitLocation(location.split(' - '))
 
-        setSplitName(lodgingSelected.host.name.split(' '))
+        setSplitName(host.name.split(' '))
 
-        const filledStarQty = parseInt(lodgingSelected.rating)
+        const filledStarQty = parseInt(rating)
 
-        const tmpfilledStar = []
-
-        for (let i = 0; i < 5; i++) {
-            tmpfilledStar.push(filledStarQty > i ? true : false)
-        }
+        const tmpfilledStar = Array.from(
+            { length: 5 },
+            (_, i) => filledStarQty > i
+        )
 
         setFilledStar(tmpfilledStar)
 
         setDataGot(true)
     }, [lodgingSelected])
 
-    const location = splitLocation[1] + ', ' + splitLocation[0]
-    // Destructure the lodgingSelected object
-    const { title, pictures, description, host, tags, equipments } =
-        lodgingSelected
+    const formattedLocation = splitLocation[1] + ', ' + splitLocation[0]
 
     const carouselLength = pictures.length
 
@@ -114,16 +124,19 @@ export default function Lodging() {
     }
 
     return (
+        // Display lodging page when data are retrieved
         <main
             data-testid="lodging"
             className={dataGot ? styles.lodging : styles.waiting}
         >
-            <div className={`slider ${styles.slider}`}>
+            <div className={styles.slider}>
                 <img
                     src={pictures[imgIdx]}
                     alt={title}
                     className={styles.lodgingView}
                 />
+
+                {/* Display carousel arrrows and infos if more than 1 picture */}
                 {carouselLength > 1 && (
                     <>
                         <div className={styles.viewNavigation}>
@@ -145,7 +158,7 @@ export default function Lodging() {
                 <div className={styles.infosWrapper}>
                     <div className="pres-wrapper">
                         <h1>{title}</h1>
-                        <h2>{location}</h2>
+                        <h2>{formattedLocation}</h2>
                     </div>
                     <div>
                         {tags.map((tag, idx) => {
@@ -171,6 +184,7 @@ export default function Lodging() {
                             className={styles.hostPicture}
                         />
                     </div>
+
                     <div className={styles.rate}>
                         {filledStar.map((star, idx) => {
                             return (

@@ -1,6 +1,5 @@
-import React from "react"
-import Logo from "../../assets/img/LOGO-BLACK.svg"
-import styles from "./Footer.module.scss"
+import Logo from '../../assets/img/LOGO-BLACK.svg'
+import styles from './Footer.module.scss'
 
 export default function Footer() {
     return (
