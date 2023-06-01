@@ -7,7 +7,8 @@ export default function Home() {
     return (
         <main data-testid="home-page">
             <Banner
-                text="Chez vous et partout ailleurs"
+                textTop="Chez vous, "
+                textBottom="partout et ailleurs"
                 src="/src/assets/img/home-banner-img.png"
             />
             <section className={styles.section}>

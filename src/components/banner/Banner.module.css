@@ -12,13 +12,19 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .header span {
-    padding: 0 1rem;
+  .header > span {
+    margin: 0 1rem;
   }
 }
 @media screen and (max-width: 500px) {
   .header {
     height: 7rem;
     font-size: 1.5rem;
+    place-content: center start;
+  }
+  .header span {
+    margin-left: 1rem;
+    display: block;
+    line-height: 1.25;
   }
 }/*# sourceMappingURL=Banner.module.css.map */

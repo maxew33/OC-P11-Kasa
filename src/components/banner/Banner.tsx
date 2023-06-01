@@ -3,7 +3,8 @@ import { useEffect, useRef } from 'react'
 import styles from './Banner.module.css'
 
 type BannerProps = {
-    text: string
+    textTop: string
+    textBottom: string
     src: string
 }
 
@@ -19,7 +20,7 @@ export default function Banner(props: BannerProps) {
     return (
         <header ref={headerRef} className={styles.header}>
             <span>
-                {props.text}
+                <span>{props.textTop}</span><span>{props.textBottom}</span>                
             </span>
         </header>
     )
