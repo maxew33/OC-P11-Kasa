@@ -26,7 +26,8 @@ Dans le terminal, taper la commande : `npm run dev`
 
 ## Aperçu
 
-**[Petits Plats](https://maxew33.github.io/petits-plats/)**
+ * ![Kasa](https://github.com/maxew33/OC-P11-Kasa/blob/master/visuels.png)
+ * [visiter le site](https://maxew33.github.io/OC-P11-Kasa/)
 
 
 ## Author
