@@ -2,16 +2,16 @@ import { describe, expect, it } from "vitest"
 import { render, screen } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
 
-import About from "../pages/about/About"
+import Error from "../pages/error/Error"
 
-describe("When I'm redirected on the about page", () => {
-    it("should render the about page", () => {
+describe("When I'm redirected on the error page", () => {
+    it("should render the error page", () => {
         render(
             <BrowserRouter>
-                <About />
+                <Error />
             </BrowserRouter>
         )
-        expect(screen.getByTestId("about")).toBeInTheDocument()
+        expect(screen.getByTestId("error")).toBeInTheDocument()
     })
 })
 

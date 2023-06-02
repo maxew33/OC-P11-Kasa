@@ -3,11 +3,12 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Router from "../router/Router";
 
-describe("Router", () => {
+describe("When the router is used", () => {
+  const basePath = process.env.BASE_URL
   const testRoutes = [
-    { path: "/", component: "home-page" },
-    { path: "/about", component: "about" },
-    { path: "/lodging/b9123946", component: "lodging" },
+    { path: `${basePath}`, component: "home-page" },
+    { path: `${basePath}about`, component: "about" },
+    { path: `${basePath}lodging/b9123946`, component: "lodging" },
     { path: "/404", component: "error" },
   ];
 

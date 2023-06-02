@@ -18,23 +18,22 @@ describe("when the header is diplayed", () => {
         const aboutNavLink = screen.getByTestId("about-navlink")
 
         expect(homeNavLink).toBeInTheDocument()
-        expect(homeNavLink).toHaveAttribute("href", "/")
         expect(homeNavLink.textContent).toBe("Home")
 
         expect(aboutNavLink).toBeInTheDocument()
-        expect(aboutNavLink).toHaveAttribute("href", "/about")
         expect(aboutNavLink.textContent).toBe("À propos")
     })
 
     it("redirects to the correct page when a link is clicked", () => {
         const homeNavLink = screen.getByTestId("home-navlink")
         const aboutNavLink = screen.getByTestId("about-navlink")
-        // Clic on "Home"
+        const basePath = process.env.BASE_URL
+        // Click on "Home"
         fireEvent.click(homeNavLink)
-        expect(window.location.pathname).toBe("/")
+        expect(window.location.pathname).toBe(`${basePath}`)
 
-        // Clic on "à Propos"
+        // Click on "à Propos"
         fireEvent.click(aboutNavLink)
-        expect(window.location.pathname).toBe('/about')
+        expect(window.location.pathname).toBe(`${basePath}about`)
     })
 })

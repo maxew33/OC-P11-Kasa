@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from "vitest"
-import { render, screen, fireEvent } from "@testing-library/react"
+import { describe, expect, it } from "vitest"
+import { render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 
 import Card from "../components/card/Card"
@@ -34,11 +34,4 @@ describe("when a card is diplayed", async() => {
         expect(cardImg).toHaveAttribute("src", mockSrc)
     })
 
-    it("calls handleClick function on click", ()=> {
-        
-        const navigate = vi.fn()
-        fireEvent.click(cardWrapper as HTMLElement)
-        // expect(navigate).toHaveBeenCalled()
-        // expect(screen.getByTestId('lodging')).toBeInTheDocument()
-    })
 })
