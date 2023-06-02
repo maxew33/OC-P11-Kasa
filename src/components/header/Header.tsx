@@ -3,14 +3,17 @@ import Logo from '../../assets/img/LOGO.png'
 import styles from './Header.module.scss'
 
 export default function Header() {
+    const basePath = process.env.BASE_URL
+    console.log(basePath)
+
     return (
         <header className={styles.navbar}>
-            <a href="/">
+            <NavLink to={`${basePath}`} data-testid="header-logo-navlink">
                 <img src={Logo} alt="Logo de Kasa" className={styles.image} />
-            </a>
+            </NavLink>
             <nav>
                 <NavLink
-                    to="/"
+                    to={`${basePath}`}
                     className={({ isActive }) =>
                         isActive ? styles.active : styles.link
                     }
@@ -19,7 +22,7 @@ export default function Header() {
                     Home
                 </NavLink>
                 <NavLink
-                    to="/about"
+                    to={`${basePath}about`}
                     className={({ isActive }) =>
                         isActive ? styles.active : styles.link
                     }

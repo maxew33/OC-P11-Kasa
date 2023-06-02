@@ -9,13 +9,15 @@ type CardProps = {
 
 export default function Card(props: CardProps) {
     
+    const basePath = process.env.BASE_URL;
+    
     // Navigation function
     const navigate = useNavigate()
 
     return (
         <article
             className={styles.card}
-            onClick={() => navigate('/lodging/' + props.id)}
+            onClick={() => navigate(`${basePath}lodging/` + props.id)}
         >
             <img src={props.src} alt={props.title} />
             <span className={styles.title}>{props.title}</span>

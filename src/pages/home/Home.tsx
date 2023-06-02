@@ -4,12 +4,13 @@ import Card from '../../components/card/Card'
 import Banner from '../../components/banner/Banner'
 
 export default function Home() {
+    const basePath = process.env.BASE_URL
     return (
         <main data-testid="home-page">
             <Banner
                 textTop="Chez vous, "
                 textBottom="partout et ailleurs"
-                src="/src/assets/img/home-banner-img.png"
+                src={`${basePath}/home-banner-img.png`}
             />
             <section className={styles.section}>
                 {lodgingData.map((lodging, idx) => {

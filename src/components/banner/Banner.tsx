@@ -20,7 +20,8 @@ export default function Banner(props: BannerProps) {
     return (
         <header ref={headerRef} className={styles.header}>
             <span>
-                <span>{props.textTop}</span><span>{props.textBottom}</span>                
+                <span>{props.textTop}</span>
+                <span>{props.textBottom}</span>
             </span>
         </header>
     )

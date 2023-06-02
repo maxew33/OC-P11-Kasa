@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/OC-P11-Kasa/',
+  base: '/OC-P11-Kasa',
   plugins: [react()],
   test: {
     environment: "jsdom",
@@ -17,4 +17,7 @@ export default defineConfig({
       provider: 'istanbul' // or 'c8'
     },
   },
+  define: {
+    'process.env.BASE_URL': JSON.stringify('/OC-P11-Kasa')
+  }
 })

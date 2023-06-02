@@ -5,12 +5,13 @@ import aboutData from '../../data/aboutData.json'
 import styles from './About.module.css'
 
 export default function About() {
+    const basePath = process.env.BASE_URL
     return (
         <main data-testid="about" className={styles.container}>
             <Banner
                 textTop=""
                 textBottom=""
-                src="/src/assets/img/about-banner-img.png"
+                src={`${basePath}/about-banner-img.png`}
             />
             {aboutData.map((aboutDropdown, idx) => {
                 return (
