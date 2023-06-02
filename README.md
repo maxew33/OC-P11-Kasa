@@ -16,6 +16,8 @@ Mettre en place des composants avec React et les routes de l'application avec Re
 
 ## Installation
 
+Si vite n'est pas installé, dans le terminal, taper la commande : `npm i vite`
+
 ### Lancement
 
 Dans le terminal, taper la commande : `npm run dev`
