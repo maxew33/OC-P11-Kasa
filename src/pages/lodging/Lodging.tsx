@@ -53,12 +53,8 @@ export default function Lodging() {
         equipments,
     } = lodgingSelected
 
-    const [splitLocation, setSplitLocation] = useState<string[]>([])
-
-    const [splitName, setSplitName] = useState<string[]>([])
-
-    const [filledStar, setFilledStar] = useState<boolean[]>([])
-
+    let formattedLocation = ''
+    
     const [imgIdx, setImgIdx] = useState(0)
 
     const [dataGot, setDataGot] = useState(false)
@@ -91,23 +87,12 @@ export default function Lodging() {
 
     // format the place and name data and the rate
     useEffect(() => {
-        setSplitLocation(location.split(' - '))
+        const splitLocation = location.split(' - ')
 
-        setSplitName(host.name.split(' '))
-
-        const filledStarQty = parseInt(rating)
-
-        const tmpfilledStar = Array.from(
-            { length: 5 },
-            (_, i) => filledStarQty > i
-        )
-
-        setFilledStar(tmpfilledStar)
+        formattedLocation = splitLocation[1] + ', ' + splitLocation[0]
 
         setDataGot(true)
     }, [lodgingSelected])
-
-    const formattedLocation = splitLocation[1] + ', ' + splitLocation[0]
 
     const carouselLength = pictures.length
 
@@ -174,9 +159,9 @@ export default function Lodging() {
                 <div className={styles.infosWrapper}>
                     <div className={styles.host}>
                         <div className="name">
-                            {splitName[0]}
+                            {host.name.split(' ')[0]}
                             <br />
-                            {splitName[1]}
+                            {host.name.split(' ')[1]}
                         </div>
                         <img
                             src={host.picture}
@@ -186,7 +171,9 @@ export default function Lodging() {
                     </div>
 
                     <div className={styles.rate}>
-                        {filledStar.map((star, idx) => {
+                        {Array.from(
+            { length: 5 },
+            (_, i) => parseInt(rating) > i).map((star, idx) => {
                             return (
                                 <span
                                     key={idx}

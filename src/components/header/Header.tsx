@@ -4,7 +4,6 @@ import styles from './Header.module.scss'
 
 export default function Header() {
     const basePath = process.env.BASE_URL
-    console.log(basePath)
 
     return (
         <header className={styles.navbar}>
