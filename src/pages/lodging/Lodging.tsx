@@ -57,8 +57,6 @@ export default function Lodging() {
     
     const [imgIdx, setImgIdx] = useState(0)
 
-    const [dataGot, setDataGot] = useState(false)
-
     // Get the parameter from the URL
     const params = useParams<{ id: string }>()
 
@@ -91,7 +89,6 @@ export default function Lodging() {
 
         formattedLocation = splitLocation[1] + ', ' + splitLocation[0]
 
-        setDataGot(true)
     }, [lodgingSelected])
 
     const carouselLength = pictures.length
@@ -112,7 +109,7 @@ export default function Lodging() {
         // Display lodging page when data are retrieved
         <main
             data-testid="lodging"
-            className={dataGot ? styles.lodging : styles.waiting}
+            className={title ? styles.lodging : styles.waiting}
         >
             <div className={styles.slider}>
                 <img
