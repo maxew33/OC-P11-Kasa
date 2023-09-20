@@ -6,7 +6,7 @@
 
 - Implémenter le front end de Kasa, une application de location de logements.
 - Mettre en place des composants avec React et les routes de l'application avec React Router.
-- 
+
 ## Compétences cibles
 
 -   Développer les routes d'une application web avec React Router
