@@ -2,17 +2,16 @@
 
 ![Logo](https://raw.githubusercontent.com/maxew33/OC-P11-Kasa/master/src/assets/img/LOGO.png)
 
+## Objectif
+
+- Implémenter le front end de Kasa, une application de location de logements.
+- Mettre en place des composants avec React et les routes de l'application avec React Router.
+- 
 ## Compétences cibles
 
 -   Développer les routes d'une application web avec React Router
 -   Initialiser une application web avec un framework
 -   Créer des composants React
-
-## Objectif
-
-Implémenter le front end de Kasa, une application de location de logements.
-
-Mettre en place des composants avec React et les routes de l'application avec React Router.
 
 ## Installation
 
