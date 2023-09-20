@@ -17,7 +17,7 @@
 
 1. Cloner le repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/maxew33/OC-P11-Kasa.git
    ```
 2. Installer les packages
    ```sh
