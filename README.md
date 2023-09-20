@@ -16,7 +16,14 @@ Mettre en place des composants avec React et les routes de l'application avec Re
 
 ## Installation
 
-Si vite n'est pas installé, dans le terminal, taper la commande : `npm i vite`
+1. Cloner le repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+2. Installer les packages
+   ```sh
+   npm install
+   ```
 
 ### Lancement
 
